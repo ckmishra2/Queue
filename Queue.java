@@ -1,6 +1,6 @@
 package dataqueue;
 
-import java.util.Scanner;
+//ability to create a Queue of 56->30->70
 
 class QNode {
 	int data;
@@ -11,6 +11,7 @@ class QNode {
 		this.next = null;
 	}
 }
+
 public class Queue {
 	QNode front;
 	QNode rear;
@@ -26,20 +27,33 @@ public class Queue {
 		rear.next = n;
 		rear = n;
 	}
+	void deque() {
+		if (front == null) {
+			System.out.println("queue is empty");
+			return;
+		}
+		System.out.println("Deleted front: " + front.data);
+		front = front.next;
+	
+}
+
 	void printQueue() {
 		QNode temp = this.front;
 		while (temp != null) {
-			System.out.println(temp.data );
+			System.out.println(temp.data);
 			temp = temp.next;
+
+		}
+	}
 		
-	}
-	}
+	
+
 	public static void main(String[] args) {
 		Queue q = new Queue();
-		
 		q.enque(56);
 		q.enque(30);
 		q.enque(70);
+		q.deque();
 		q.printQueue();
-}
+	}
 }
